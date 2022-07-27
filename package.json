@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/Khosasih/Cypress-Automation-testing/issues"
   },
-  "homepage": "https://github.com/Khosasih/Cypress-Automation-testing#readme"
+  "homepage": "https://github.com/Khosasih/Cypress-Automation-testing#readme",
+  "devDependencies": {
+    "cypress": "^10.3.1"
+  }
 }
