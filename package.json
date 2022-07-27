@@ -1,0 +1,26 @@
+{
+  "name": "tonase-qa",
+  "version": "1.0.0",
+  "description": "cypress sisfwd",
+  "main": "index.js",
+  "scripts": {
+    "test": "Automation Testing"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khosasih/Cypress-Automation-testing.git"
+  },
+  "keywords": [
+    "e2e",
+    "tests",
+    "cypress",
+    "automation",
+    "frameworks"
+  ],
+  "author": "QA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Khosasih/Cypress-Automation-testing/issues"
+  },
+  "homepage": "https://github.com/Khosasih/Cypress-Automation-testing#readme"
+}
