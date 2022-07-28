@@ -1,4 +1,4 @@
-describe("Login Page SISFWD", () => {
+describe("Login Page SISFWD", (dashboard,button) => {
     it("Visit Login SISFWD", () => {
         cy.visit("https://dev-fe.sisfwd.com");
     });
@@ -21,18 +21,79 @@ describe("Login Page SISFWD", () => {
         //password
         const password = cy.get("input[name='password']");
         password.type("123123")
-        cy.wait(1000)
+        //show password
+        cy.get('label[for="password"]').find('svg[class*="cursor-pointer"]').click()
         //masuk
-        const button = cy.get("button")
+        button = cy.get("button")
         button.contains("Masuk").click()
     });
-    it("Logout", () => {
-        cy.wait(5000)
-        cy.get('.pt-20 > :nth-child(20)').click()
-        cy.wait(1000)
-        cy.get('.swal2-cancel').click()
-        cy.get('.pt-20 > :nth-child(20)').click()
-        cy.wait(1000)
-        cy.get('.swal2-confirm').click()
+    it("Dashboard",()=>{
+        dashboard = cy.get('.pt-20').children();
+        // dashboard.get('[href="/dashboard"]')
+        // dashboard.get('[href="/dashboard/subscribe"]')
+        // dashboard.get('[href="/dashboard/projection"]')
+        // dashboard.get('[href="/dashboard/quotation"]')
+        // dashboard.get('[href="/dashboard/project"]')
+        // dashboard.get('[href="/dashboard/payment"]')
+        // dashboard.get('[href="/dashboard/sales"]')
+        // dashboard.get('[href="/dashboard/job-order"]')
+        // dashboard.get('[href="/dashboard/spe-container"]')
+        // dashboard.get('[href="/dashboard/accounts"]')
+        // dashboard.get('[href="/dashboard/schedule"]')
+        // dashboard.get('[href="/dashboard/user-customer"]')
+        // dashboard.get('[href="/dashboard/prospect-customer"]')
+        // dashboard.get('[href="/dashboard/company-profile"]')
+        // dashboard.get('[href="/dashboard/Article"]')
+        // dashboard.get('[href="/dashboard/master-data"]')
+        // dashboard.get('[href="/dashboard/promo"]')
+        // dashboard.get('[href="/dashboard/setting"]')
+        dashboard.get('a[href*="/dashboard/accounts"]').click()
+        cy.wait(2500)
+        cy.get('.justify-between > .px-6').click()
+        const username = cy.get("input[name='name']").clear();
+        username.type("ROOT ADMIN")
+        const phoneNumber = cy.get("input[name='mobile_number']").clear();
+        phoneNumber.type("0123254789654")
+        cy.wait(1500)
+        cy.get('[name="province"]').click();
+        cy.get('#headlessui-combobox-options-12').contains('ACEH').click();
+        cy.wait(1500)
+        cy.get('[name="city"]').click();
+        cy.get('#headlessui-combobox-options-48').contains('KABUPATEN ACEH TIMUR').click();
+        cy.wait(500)
+        cy.get('[name="district"]').click();
+        cy.wait(500)
+        cy.get('#headlessui-combobox-options-73').contains('JULOK').click()
+        cy.get('[name="village"]').click();
+        cy.wait(500)
+        cy.get('#headlessui-combobox-options-99').contains('BLANG JAMBEE').click()
+        const alamat = cy.get('[placeholder="Alamat"]').clear();
+        alamat.type("Jelambar")
+        const kodePos = cy.get("input[name='post_code']").clear();
+        kodePos.type("1254667")
+        const button = cy.get('.space-y-5 > .justify-between > div.flex > .px-6')
+        button.contains("Simpan").click()
+        dashboard.get('a[href*="/dashboard/accounts"]').click()
+        const button1 = cy.get("button")
+        button1.contains("Ubah Foto").click()
+        cy.get('input[type="file"]').selectFile('cypress/e2e/images/jengjeng.jpg')
+        const button2 = cy.get('.justify-end > .px-6')
+        // cy.get('#uploaded-files').contains('jengjeng.jpg')
+        button2.contains("Simpan").click()
+
     });
+    // it("Akun & User",()=>{
+    //     dashboard.get('a[href*="/dashboard/accounts"]').click()
+    //     button = cy.get("button")
+    //     button.contains("Edit Profile").click()
+    // });
+    // it("Logout", () => {
+    //     cy.wait(1000)
+    //     cy.get('.pt-20 > :nth-child(20)').click()
+    //     cy.wait(1000)
+    //     cy.get('.swal2-cancel').click()
+    //     cy.get('.pt-20 > :nth-child(20)').click()
+    //     cy.wait(1000)
+    //     cy.get('.swal2-confirm').click()
+    // });
 });
