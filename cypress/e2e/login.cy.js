@@ -84,6 +84,7 @@ describe("Login Page SISFWD", (dashboard,button) => {
         button2.contains("Simpan").click()
         cy.get('#swal2-title').contains("Avatar berhasil diubah")
         cy.wait(3000)
+        cy.get('.justify-between > .text-s').click()
     });
     // it("Akun & User",()=>{
     //     dashboard.get('a[href*="/dashboard/accounts"]').click()
