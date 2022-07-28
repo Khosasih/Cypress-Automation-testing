@@ -53,11 +53,11 @@ describe("Login Page SISFWD", (dashboard,button) => {
         const username = cy.get("input[name='name']").clear();
         username.type("ROOT ADMIN")
         const phoneNumber = cy.get("input[name='mobile_number']").clear();
-        phoneNumber.type("0123254789654")
-        cy.wait(1500)
+        phoneNumber.type("2154645578414")
+        cy.wait(500)
         cy.get('[name="province"]').click();
         cy.get('#headlessui-combobox-options-12').contains('ACEH').click();
-        cy.wait(1500)
+        cy.wait(500)
         cy.get('[name="city"]').click();
         cy.get('#headlessui-combobox-options-48').contains('KABUPATEN ACEH TIMUR').click();
         cy.wait(500)
@@ -73,14 +73,17 @@ describe("Login Page SISFWD", (dashboard,button) => {
         kodePos.type("1254667")
         const button = cy.get('.space-y-5 > .justify-between > div.flex > .px-6')
         button.contains("Simpan").click()
-        dashboard.get('a[href*="/dashboard/accounts"]').click()
+        cy.get('.swal2-popup').contains("Berhasil update profile.")
+        cy.wait(3000)
+        // dashboard.get('a[href*="/dashboard/accounts"]').click()
         const button1 = cy.get("button")
         button1.contains("Ubah Foto").click()
+        cy.wait(1000)
         cy.get('input[type="file"]').selectFile('cypress/e2e/images/jengjeng.jpg')
         const button2 = cy.get('.justify-end > .px-6')
-        // cy.get('#uploaded-files').contains('jengjeng.jpg')
         button2.contains("Simpan").click()
-
+        cy.get('#swal2-title').contains("Avatar berhasil diubah")
+        cy.wait(3000)
     });
     // it("Akun & User",()=>{
     //     dashboard.get('a[href*="/dashboard/accounts"]').click()
