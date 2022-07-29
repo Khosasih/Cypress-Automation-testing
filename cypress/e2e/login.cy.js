@@ -85,6 +85,14 @@ describe("Login Page SISFWD", (dashboard,button) => {
         cy.get('#swal2-title').contains("Avatar berhasil diubah")
         cy.wait(3000)
         cy.get('.justify-between > .text-s').click()
+        const password = cy.get("input[name='password']");
+        password.type("123123")
+        cy.get('label[for="password"]').find('svg[class*="cursor-pointer"]').click()
+        const password1 = cy.get("input[name='password_confirmation']");
+        password1.type("123123")
+        cy.get('button').contains("Terapkan dan Masuk").click()
+        cy.get('.swal2-popup').contains("Password berhasil diubah, silahkan login ulang")
+        cy.wait(3000)
     });
     // it("Akun & User",()=>{
     //     dashboard.get('a[href*="/dashboard/accounts"]').click()
