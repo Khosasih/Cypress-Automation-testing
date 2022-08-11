@@ -104,7 +104,22 @@ describe("Login Page SISFWD", (dashboard,button) => {
         // untuk manual cari tanggal
         // cy.get(':nth-child(33) > .rdrDayNumber')
         cy.get('.rdrDayToday > .rdrDayNumber').click()
-        
+        const sales = cy.get('.ck-blurred')
+        sales.type('Test prospect adam')
+        const type = cy.get('[name = "alamat[0][is_main]"]').click()
+        type.get('#headlessui-combobox-options-97').contains('Head Office').click()
+        const provinsi = cy.get('[name="alamat[0][province_id]"]').click()
+        provinsi.get('#headlessui-combobox-options-101').contains('DKI JAKARTA').click()
+        const kota = cy.get('[name="alamat[0][city_id]"]').click()
+        kota.get('#headlessui-combobox-options-137').contains('KOTA ADM. JAKARTA BARAT').click()
+        const kecamatan = cy.get('[name="alamat[0][district_id]"]').click()
+        kecamatan.get('#headlessui-combobox-options-156').contains('TAMBORA').click()
+        const kelurahan = cy.get('[name="alamat[0][vilage_id]"]').click()
+        kelurahan .get('#headlessui-combobox-options-166').contains('TAMBORA').click()
+        const alamatDetail = cy.get('[name="alamat[0][address]"]')
+        alamatDetail.type('Gedung Merah')
+        cy.get('.h-auto > :nth-child(12)').click()
+
         
     });
     // it("Logout", () => {

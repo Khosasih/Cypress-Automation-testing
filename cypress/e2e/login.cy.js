@@ -28,7 +28,7 @@ describe("Login Page SISFWD", (dashboard,button) => {
         button.contains("Masuk").click()
     });
     it("Dashboard",()=>{
-        dashboard = cy.get('.pt-20').children();
+        // dashboard = cy.get('.pt-20').children();
         // dashboard.get('[href="/dashboard"]')
         // dashboard.get('[href="/dashboard/subscribe"]')
         // dashboard.get('[href="/dashboard/projection"]')
@@ -47,7 +47,7 @@ describe("Login Page SISFWD", (dashboard,button) => {
         // dashboard.get('[href="/dashboard/master-data"]')
         // dashboard.get('[href="/dashboard/promo"]')
         // dashboard.get('[href="/dashboard/setting"]')
-        dashboard.get('a[href*="/dashboard/accounts"]').click()
+        cy.get('a[href*="/dashboard/accounts"]').click()
         cy.wait(2500)
         cy.get('.justify-between > .px-6').click()
         const username = cy.get("input[name='name']").clear();
