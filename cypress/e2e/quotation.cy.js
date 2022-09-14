@@ -33,10 +33,15 @@ describe("Edit Akun&User Page SISFWD", (dashboard, button) => {
     cy.get('[href="/customer/quotation"]').click();
     cy.wait(1000);
     cy.get(".ml-auto > .text-white").click();
-    cy.get('#headlessui-combobox-input-4').click();
-    cy.get('#headlessui-combobox-options-22')
-    cy.get('#headlessui-combobox-option-23 > .block').click()
-    cy.get('#headlessui-combobox-input-6').click();
-    cy.contains('KAB TIMOR TENGAH SELATAN').click();
+    cy.get('[name="m_service_id"]').click();
+    cy.get('#headlessui-combobox-options-22').contains('Door To Door').click();
+    cy.get('[name="origin_city_id"]').click();
+    cy.get('[aria-labelledby="headlessui-combobox-button-5"]').contains('KOTA ADM. JAKARTA BARAT').click();
+    cy.get('[name="destination_city_id"]').click();
+    cy.get('[aria-labelledby="headlessui-combobox-button-7"]').contains('KOTA ADM. JAKARTA SELATAN').click();
+    cy.get('[name="date"]').click();
+    cy.get('.rdrMonths > :nth-child(1)').contains('16').click();
+    // cy.get('[name = "origin_city_id"]').click();
+
   });
 });
