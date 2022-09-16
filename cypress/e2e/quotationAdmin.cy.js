@@ -77,10 +77,10 @@ describe("SISFWD", (dashboard, button) => {
        cy.wait(500);
        const province = cy.get("[name=province]").click();
        province.type('DKI');
-       cy.get('#headlessui-combobox-option-1127').contains('DKI JAKARTA').click();
+       cy.get('.px-7').contains('DKI JAKARTA').click();
        const city = cy.get("[name=city]").click();
        city.type('KOTA ADM ');
-       cy.get('#headlessui-combobox-option-1156').contains('KOTA ADM. JAKARTA SELATAN').click();
+       cy.get('.px-7').contains('KOTA ADM. JAKARTA SELATAN').click();
        cy.wait(500);
        const address = cy.get("[name=address]").click();
        address.type('setiabudi');
@@ -102,10 +102,10 @@ describe("SISFWD", (dashboard, button) => {
        cy.wait(500);
        const province2 = cy.get("[name=province]").click();
        province2.type('DKI');
-       cy.get('#headlessui-combobox-option-1184').contains('DKI JAKARTA').click();
+       cy.get('form > :nth-child(1)').contains('DKI JAKARTA').click();
        const city2 = cy.get("[name=city]").click();
-       city2.type('KOTA ADM ');
-       cy.get('#headlessui-combobox-option-1214').contains('KOTA ADM. JAKARTA TIMUR').click();
+       city2.type('KOTA ADM.');
+       cy.get('.px-7').contains('KOTA ADM. JAKARTA TIMUR').click();
        cy.wait(500);
        const address2 = cy.get("[name=address]").click();
        address2.type('timur');
@@ -119,10 +119,14 @@ describe("SISFWD", (dashboard, button) => {
        cy.wait(500);
        const submit2 = cy.get("[type='submit']");
        submit2.contains("Save").click();
-       cy.get('.col-span-8 > .py-5').find('.justify-end > .py-3').contains("Next").click();
+       cy.get('.col-span-8 > .py-5').find('.justify-end > .py-3').contains('Next').click();
       });
-      it("Quotation STEP 3", () => {
+      // it("Quotation STEP 3", () => {
+      //   const shipperName = cy.get("[name='shipperName']")
+      //   shipperName.type('test')
+      // });
+      // it("Quotation STEP 4", () => {
 
-      });
+      // });
   });
   
