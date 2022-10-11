@@ -60,7 +60,20 @@ describe("Edit Akun&User Page SISFWD", (dashboard, button) => {
       cy.get("[id='weight']").type(Ton);
       let Qty = 24;
       cy.get("[id='qty']").type(Qty);
-
+      const comodity = cy.get("[name='comodity']");
+      comodity.click();
+      cy.get('#headlessui-combobox-options-1079').contains("General Cargo").click();
+      const ukuranKontainer = cy.get("[name='containerSize']");
+      ukuranKontainer.click();
+      cy.get('#headlessui-combobox-options-1091').contains("40 Feet").click();
+      const comodityDetail = cy.get("[name='comodityDetail']");
+      comodityDetail.click();
+      cy.get('#headlessui-combobox-options-1095').contains("Consumer Goods").click();
+      cy.get("[id='soc']")
+      cy.get("[id='food']")
+      cy.get("[id='exim']").check();
+      button = cy.get("button");
+      button.contains("Next").click();
     });
   });
   
